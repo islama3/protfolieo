@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بورتفوليو | [إسلام أيمن] - مسوق إلكتروني متخصص في السوشيال ميديا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #1a365d; /* أزرق داكن */
+            --secondary-color: #4299e1; /* أزرق فاتح */
+            --accent-color: #ed8936; /* برتقالي */
+            --light-color: #f7fafc;
+            --dark-color: #2d3748;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Hero Section */
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            background-color: #dd6b20;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* About Section */
+        #about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        /* Skills Section */
+        #skills {
+            background-color: #f8f9fa;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-icon {
+            font-size: 40px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Portfolio Section */
+        #portfolio {
+            background-color: white;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-info {
+            padding: 20px;
+        }
+        
+        /* Testimonials */
+        #testimonials {
+            background-color: #f8f9fa;
+        }
+        
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .client-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 15px;
+        }
+        
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Contact */
+        #contact {
+            background-color: white;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">إسلام أيمن</div>
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#about">من أنا؟</a></li>
+                    <li><a href="#skills">مهاراتي</a></li>
+                    <li><a href="#portfolio">أعمالي</a></li>
+                    <li><a href="#contact">تواصل معي</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>مرحباً، أنا <span>إسلام أيمن</span></h1>
+                <p>مسوق إلكتروني متخصص في إدارة الحملات الإعلانية على منصات السوشيال ميديا</p>
+                <div>
+                    <a href="#portfolio" class="btn">أعمالي السابقة</a>
+                    <a href="#contact" class="btn" style="background-color: var(--secondary-color);">تواصل معي</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>من أنا؟</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="WhatsApp Image 2024-09-23 at 03.01.07_a072157a.jpg" alt="صورة شخصية">
+                </div>
+                <div class="about-text">
+                    <h3>خبير تسويق إلكتروني</h3>
+                    <p>أنا إسلام أيمن، مسوق إلكتروني محترف مع أكثر من 1 سنه من الخبرة في إدارة الحملات الإعلانية على منصات السوشيال ميديا مثل فيسبوك، إنستغرام، تيك توك، لينكدإن، وتويتر.</p>
+                    <p>متخصص في تحليل البيانات ودراسة الجمهور المستهدف لإنشاء استراتيجيات تسويقية ناجحة تحقق أعلى عائد على الاستثمار (ROI) للعملاء.</p>
+                    <p>خلال مسيرتي، ساعدت أكثر من [X] عميلاً في تحقيق أهدافهم التسويقية وزيادة مبيعاتهم من خلال استراتيجيات التسويق الرقمي المبتكرة.</p>
+                    <p>أؤمن بأن نجاح أي حملة إعلانية يعتمد على ثلاثة عناصر رئيسية: استهداف دقيق، محتوى جذاب، وتحليل مستمر للنتائج.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>مهاراتي في التسويق الإلكتروني</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>إدارة الحملات الإعلانية</h3>
+                    <p>إدارة حملات إعلانية مدفوعة على فيسبوك، إنستغرام، جوجل أدز، تيك توك، ولينكدإن مع تحقيق أفضل نتائج بأقل تكلفة.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>تحليل البيانات</h3>
+                    <p>تحليل أداء الحملات باستخدام أدوات مثل Google Analytics، Facebook Insights، وبرامج تحليل أخرى لتحسين النتائج باستمرار.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>إدارة منصات السوشيال ميديا</h3>
+                    <p>إدارة متكاملة لحسابات السوشيال ميديا بما في ذلك التخطيط للمحتوى، التفاعل مع المتابعين، وبناء استراتيجيات النمو.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h3>كتابة المحتوى التسويقي</h3>
+                    <p>إنشاء محتوى جذاب ومقنع يتوافق مع استراتيجيات التسويق بالعمق (Copywriting) ويساهم في زيادة التحويلات.</p>
+                   
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>تحسين محركات البحث (SEO)</h3>
+                    <p>تحسين المواقع الإلكترونية ومحتوى السوشيال ميديا لمحركات البحث لزيادة الظهور العضوي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <h2>أعمالي السابقة</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/600x400" alt="حملة تسويقية">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>حملة تسويقية لمطعم</h3>
+                        <p>حملة إعلانية على فيسبوك وإنستغرام لمطعم شهير، نتج عنها زيادة في المبيعات بنسبة 150% خلال شهرين.</p>
+                        <p><strong>المنصات:</strong> فيسبوك، إنستغرام</p>
+                        <p><strong>النتائج:</strong> 250% عائد على الاستثمار</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/600x400" alt="حملة تسويقية">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>إطلاق منتج جديد</h3>
+                        <p>حملة لإطلاق منتج تجميلي جديد عبر منصات السوشيال ميديا، مع استهداف دقيق للجمهور المناسب.</p>
+                        <p><strong>المنصات:</strong> إنستغرام، تيك توك</p>
+                        <p><strong>النتائج:</strong> 5000 عملية بيع في أول أسبوع</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://via.placeholder.com/600x400" alt="حملة تسويقية">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>بناء علامة تجارية</h3>
+                        <p>استراتيجية متكاملة لبناء علامة تجارية لشركة ناشئة في مجال التكنولوجيا.</p>
+                        <p><strong>المنصات:</strong> لينكدإن، تويتر</p>
+                        <p><strong>النتائج:</strong> زيادة المتابعين بنسبة 300% في 3 أشهر</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>آراء العملاء</h2>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <p>"إسلام أيمن ساعدنا في زيادة مبيعاتنا عبر الإنترنت بنسبة 200% خلال 3 أشهر فقط. استراتيجياته الإعلانية كانت دقيقة وفعالة."</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="https://via.placeholder.com/100x100" alt="عميل">
+                        </div>
+                        <div>
+                            <h4>أحمد محمد</h4>
+                            <p>مالك مطعم</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"الحملة الإعلانية التي صممها إسلام أيمن كانت الأفضل من حيث العائد على الاستثمار. أنصح به بشدة لأي شخص يبحث عن نتائج حقيقية."</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="https://via.placeholder.com/100x100" alt="عميل">
+                        </div>
+                        <div>
+                            <h4>سارة عبدالله</h4>
+                            <p>مديرة تسويق</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"بفضل استراتيجيات إسلام أيمن التسويقية، استطعنا الوصول إلى جمهورنا المستهدف بدقة وزيادة وعي العلامة التجارية بشكل ملحوظ."</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="https://via.placeholder.com/100x100" alt="عميل">
+                        </div>
+                        <div>
+                            <h4>خالد إبراهيم</h4>
+                            <p>رئيس شركة ناشئة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>تواصل معي</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">الاسم</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">الرسالة</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">إرسال</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>© <span id="year"></span> إسلام أيمن. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        // سنة الفوتر
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // نموذج التواصل
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // هنا يمكنك إضافة كود لإرسال البيانات إلى الخادم
+            console.log({name, email, message});
+            
+            alert('شكراً لك! سنتواصل معك قريباً.');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
